@@ -20,40 +20,54 @@ function getPlayerChoice() {
     return textChoice.toLowerCase();
 }
 
+// validate player choice
+// take getPlayerChoice - test against correct selections
+// if correct, send to game()
+// if incorrect, send another prompt
+
+function validatePlayerChoice(playerSelection) {
+    if (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors") {
+        alert("Please type in rock, paper, or scissors with correct spelling.")
+        return validatePlayerChoice(getPlayerChoice());
+    } else {
+        return playerSelection;
+    }
+
+}
+
+
 // playRound(playerSelection, computerSelection) 
 // using nested if else - find out who wins
 // returns a string declaring round winner
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors") {
-        return "Please choose rock, paper or scissors";
-    } else if (playerSelection == "rock") {
+    if (playerSelection == "rock") {
         if (computerSelection == "rock") {
-            result = "DRAW";
+            result = "      A draw? boring      ";
         } else if (computerSelection == "paper") {
-            result = "NOOOO :(";
+            result = "      NOOOO :(       ";
         } else { 
-            result = "Yay :D";
+            result = "      YAAAY! :D       ";
         }
         console.log(`Player ${playerSelection.toUpperCase()} : ${computerSelection.toUpperCase()} Computer`);
         return result;
     } else if (playerSelection == "paper") {
         if (computerSelection == "rock") {
-            result = "Yay :D";
+            result = "      YAAAY! :D       ";
         } else if (computerSelection == "paper") {
-            result = "DRAW";
+            result = "      A draw? boring      ";
         } else { 
-            result = "NOOOO :(";
+            result = "      NOOOO :(       ";
         }
         console.log(`Player ${playerSelection.toUpperCase()} : ${computerSelection.toUpperCase()} Computer`);
         return result;
     } else {
         if (computerSelection == "rock") {
-            result = "NOOOO :(";
+            result = "      NOOOO :(       ";
         } else if (computerSelection == "paper") {
-            result = "Yay :D";
+            result = "      YAAAY! :D       ";
         } else { 
-            result = "DRAW";
+            result = "      A draw? boring      ";
         }
         console.log(`Player ${playerSelection.toUpperCase()} : ${computerSelection.toUpperCase()} Computer`);
         return result;
@@ -69,27 +83,32 @@ function playRound(playerSelection, computerSelection) {
 function game() {
     let playerScore = 0;
     let computerScore = 0;
+    let draws = 0;
     for (let i = 0; i < 5; i++) {
-        console.log(`Round ${i + 1}`);
-        result = playRound(getPlayerChoice(), getComputerChoice());
+        console.log(`      ---  ROUND ${i + 1}  ---`);
+        result = playRound(validatePlayerChoice(getPlayerChoice()), getComputerChoice());
 
-        if (result == "Yay :D") {
+        if (result == "      YAAAY! :D       ") {
             playerScore = playerScore + 1;
-        } else if (result == "NOOOO :(") {
+        } else if (result == "      NOOOO :(       ") {
             computerScore = computerScore + 1;
+        } else {
+            draws = draws + 1;
         }
 
         console.log(result);
-        console.log(`Player ${playerScore} : ${computerScore} Computer`)
+        console.log(`Player ${playerScore} : ${computerScore} Computer   and   ${draws} draws`)
     }
 
     if (playerScore == computerScore) {
-        console.log("It was a draw!");
+        console.log("It was a draw!?!?");
     } else if (playerScore > computerScore) {
         console.log("Humanity prevails!");
     } else {
         console.log("Frick - the robots won :/");
     }
+
+    let response = prompt
 }
 
 game();
