@@ -16,7 +16,7 @@ function getComputerChoice() {
 // make player choice case insensitive
 
 function getPlayerChoice() {
-    textChoice = prompt("Wanna play a game? Rock, Paper or Scissors?");
+    textChoice = prompt("Rock, Paper or Scissors?");
     return textChoice.toLowerCase();
 }
 
@@ -34,7 +34,6 @@ function validatePlayerChoice(playerSelection) {
     }
 
 }
-
 
 // playRound(playerSelection, computerSelection) 
 // using nested if else - find out who wins
@@ -74,8 +73,6 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-// console.log(playRound(getPlayerChoice(), getComputerChoice()));
-
 // game() - plays five rounds
 // keeps score
 // declares overall winner
@@ -107,8 +104,6 @@ function game() {
     } else {
         console.log("Frick - the robots won :/");
     }
-
-    let response = prompt
 }
 
 game();
