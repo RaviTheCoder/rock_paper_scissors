@@ -1,5 +1,3 @@
-console.log("Wanna play a game?");
-
 // getComputerChoice() will return either r, p or s
 
 function getComputerChoice() {
@@ -18,7 +16,7 @@ function getComputerChoice() {
 // make player choice case insensitive
 
 function getPlayerChoice() {
-    textChoice = prompt("Rock, Paper or Scissors?");
+    textChoice = prompt("Wanna play a game? Rock, Paper or Scissors?");
     return textChoice.toLowerCase();
 }
 
@@ -31,42 +29,67 @@ function playRound(playerSelection, computerSelection) {
         return "Please choose rock, paper or scissors";
     } else if (playerSelection == "rock") {
         if (computerSelection == "rock") {
-            result = "draw";
+            result = "DRAW";
         } else if (computerSelection == "paper") {
-            result = "player lose";
+            result = "NOOOO :(";
         } else { 
-            result = "player win";
+            result = "Yay :D";
         }
-        console.log(`Player chose ${playerSelection}`);
-        console.log(`Computer chose ${computerSelection}`);
+        console.log(`Player ${playerSelection.toUpperCase()} : ${computerSelection.toUpperCase()} Computer`);
         return result;
     } else if (playerSelection == "paper") {
         if (computerSelection == "rock") {
-            result = "player win";
+            result = "Yay :D";
         } else if (computerSelection == "paper") {
-            result = "draw";
+            result = "DRAW";
         } else { 
-            result = "player lose";
+            result = "NOOOO :(";
         }
-        console.log(`Player chose ${playerSelection}`);
-        console.log(`Computer chose ${computerSelection}`);
+        console.log(`Player ${playerSelection.toUpperCase()} : ${computerSelection.toUpperCase()} Computer`);
         return result;
     } else {
         if (computerSelection == "rock") {
-            result = "player lose";
+            result = "NOOOO :(";
         } else if (computerSelection == "paper") {
-            result = "player win";
+            result = "Yay :D";
         } else { 
-            result = "draw";
+            result = "DRAW";
         }
-        console.log(`Player chose ${playerSelection}`);
-        console.log(`Computer chose ${computerSelection}`);
+        console.log(`Player ${playerSelection.toUpperCase()} : ${computerSelection.toUpperCase()} Computer`);
         return result;
     }
 }
 
-console.log(playRound(getPlayerChoice(), getComputerChoice()));
+// console.log(playRound(getPlayerChoice(), getComputerChoice()));
 
 // game() - plays five rounds
 // keeps score
 // declares overall winner
+
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let i = 0; i < 5; i++) {
+        console.log(`Round ${i + 1}`);
+        result = playRound(getPlayerChoice(), getComputerChoice());
+
+        if (result == "Yay :D") {
+            playerScore = playerScore + 1;
+        } else if (result == "NOOOO :(") {
+            computerScore = computerScore + 1;
+        }
+
+        console.log(result);
+        console.log(`Player ${playerScore} : ${computerScore} Computer`)
+    }
+
+    if (playerScore == computerScore) {
+        console.log("It was a draw!");
+    } else if (playerScore > computerScore) {
+        console.log("Humanity prevails!");
+    } else {
+        console.log("Frick - the robots won :/");
+    }
+}
+
+game();
