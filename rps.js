@@ -1,4 +1,4 @@
-console.log("Hello World");
+console.log("Wanna play a game?");
 
 // getComputerChoice() will return either r, p or s
 
@@ -17,14 +17,19 @@ function getComputerChoice() {
 // get player choice
 // make player choice case insensitive
 
-let playerChoice = "rock";
+function getPlayerChoice() {
+    textChoice = prompt("Rock, Paper or Scissors?");
+    return textChoice.toLowerCase();
+}
 
 // playRound(playerSelection, computerSelection) 
-// using if else - find out who wins
+// using nested if else - find out who wins
 // returns a string declaring round winner
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection == "rock") {
+    if (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors") {
+        return "Please choose rock, paper or scissors";
+    } else if (playerSelection == "rock") {
         if (computerSelection == "rock") {
             result = "draw";
         } else if (computerSelection == "paper") {
@@ -34,7 +39,6 @@ function playRound(playerSelection, computerSelection) {
         }
         console.log(`Player chose ${playerSelection}`);
         console.log(`Computer chose ${computerSelection}`);
-        // console.log(result);
         return result;
     } else if (playerSelection == "paper") {
         if (computerSelection == "rock") {
@@ -46,7 +50,6 @@ function playRound(playerSelection, computerSelection) {
         }
         console.log(`Player chose ${playerSelection}`);
         console.log(`Computer chose ${computerSelection}`);
-        // console.log(result);
         return result;
     } else {
         if (computerSelection == "rock") {
@@ -58,12 +61,11 @@ function playRound(playerSelection, computerSelection) {
         }
         console.log(`Player chose ${playerSelection}`);
         console.log(`Computer chose ${computerSelection}`);
-        // console.log(result);
         return result;
     }
 }
 
-console.log(playRound(playerChoice, getComputerChoice()));
+console.log(playRound(getPlayerChoice(), getComputerChoice()));
 
 // game() - plays five rounds
 // keeps score
