@@ -15,10 +15,7 @@ function getComputerChoice() {
 // get player choice
 // make player choice case insensitive
 
-function getPlayerChoice() {
-    textChoice = prompt("Rock, Paper or Scissors?");
-    return textChoice.toLowerCase();
-}
+let getPlayerChoice = () => prompt("Rock, Paper or Scissors?").toLowerCase();
 
 // validate player choice
 // take getPlayerChoice - test against correct selections
