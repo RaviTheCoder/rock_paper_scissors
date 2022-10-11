@@ -81,6 +81,7 @@ function game() {
     let playerScore = 0;
     let computerScore = 0;
     let draws = 0;
+    
     for (let i = 0; i < 5; i++) {
         console.log(`      ---  ROUND ${i + 1}  ---`);
         result = playRound(validatePlayerChoice(getPlayerChoice()), getComputerChoice());
