@@ -1,3 +1,6 @@
+
+game();
+
 // getComputerChoice() will return either r, p or s
 
 function getComputerChoice() {
@@ -16,7 +19,7 @@ function getComputerChoice() {
 // make player choice case insensitive
 
 function getPlayerChoice() {
-    textChoice = prompt("Wanna play a game? Rock, Paper or Scissors?");
+    textChoice = prompt("Rock, Paper or Scissors?");
     return textChoice.toLowerCase();
 }
 
@@ -34,7 +37,6 @@ function validatePlayerChoice(playerSelection) {
     }
 
 }
-
 
 // playRound(playerSelection, computerSelection) 
 // using nested if else - find out who wins
@@ -74,26 +76,25 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-// console.log(playRound(getPlayerChoice(), getComputerChoice()));
-
 // game() - plays five rounds
-// keeps score
+// keeps scorefor (let i = 0; i < 5; i++) 
 // declares overall winner
 
 function game() {
     let playerScore = 0;
     let computerScore = 0;
     let draws = 0;
+
     for (let i = 0; i < 5; i++) {
         console.log(`      ---  ROUND ${i + 1}  ---`);
         result = playRound(validatePlayerChoice(getPlayerChoice()), getComputerChoice());
 
         if (result == "      YAAAY! :D       ") {
-            playerScore = playerScore + 1;
+            playerScore += 1;
         } else if (result == "      NOOOO :(       ") {
-            computerScore = computerScore + 1;
+            computerScore += 1;
         } else {
-            draws = draws + 1;
+            draws += 1;
         }
 
         console.log(result);
@@ -107,8 +108,4 @@ function game() {
     } else {
         console.log("Frick - the robots won :/");
     }
-
-    let response = prompt
 }
-
-game();
