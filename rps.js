@@ -3,15 +3,15 @@ let paperBTN = document.querySelector('#paper');
 let scissorsBTN = document.querySelector('#scissors');
 
 rockBTN.addEventListener('click', () => {
-    console.log("rambo");
+    playRound("rock", getComputerChoice());
 });
 
 paperBTN.addEventListener('click', () => {
-    console.log("petri");
+    playRound("paper", getComputerChoice());
 });
 
 scissorsBTN.addEventListener('click', () => {
-    console.log("shaemus");
+    playRound("scissors", getComputerChoice());
 });
 
 // getComputerChoice() will return either r, p or s
