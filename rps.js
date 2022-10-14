@@ -1,5 +1,7 @@
+let rockBTN = document.querySelector('#rock');
+let paperBTN = document.querySelector('#paper');
+let scissorsBTN = document.querySelector('#scissors');
 
-game();
 
 // getComputerChoice() will return either r, p or s
 
@@ -77,32 +79,34 @@ function playRound(playerSelection, computerSelection) {
 // keeps scorefor (let i = 0; i < 5; i++) 
 // declares overall winner
 
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-    let draws = 0;
+// function game() {
+//     let playerScore = 0;
+//     let computerScore = 0;
+//     let draws = 0;
 
-    for (let i = 0; i < 5; i++) {
-        console.log(`      ---  ROUND ${i + 1}  ---`);
-        result = playRound(validatePlayerChoice(getPlayerChoice()), getComputerChoice());
+//     for (let i = 0; i < 5; i++) {
+//         console.log(`      ---  ROUND ${i + 1}  ---`);
+//         result = playRound(validatePlayerChoice(getPlayerChoice()), getComputerChoice());
 
-        if (result == "      YAAAY! :D       ") {
-            playerScore += 1;
-        } else if (result == "      NOOOO :(       ") {
-            computerScore += 1;
-        } else {
-            draws += 1;
-        }
+//         if (result == "      YAAAY! :D       ") {
+//             playerScore += 1;
+//         } else if (result == "      NOOOO :(       ") {
+//             computerScore += 1;
+//         } else {
+//             draws += 1;
+//         }
 
-        console.log(result);
-        console.log(`Player ${playerScore} : ${computerScore} Computer   and   ${draws} draws`)
-    }
+//         console.log(result);
+//         console.log(`Player ${playerScore} : ${computerScore} Computer   and   ${draws} draws`)
+//     }
 
-    if (playerScore == computerScore) {
-        console.log("It was a draw!?!?");
-    } else if (playerScore > computerScore) {
-        console.log("Humanity prevails!");
-    } else {
-        console.log("Frick - the robots won :/");
-    }
-}
+//     if (playerScore == computerScore) {
+//         console.log("It was a draw!?!?");
+//     } else if (playerScore > computerScore) {
+//         console.log("Humanity prevails!");
+//     } else {
+//         console.log("Frick - the robots won :/");
+//     }
+// }
+
+// game();
