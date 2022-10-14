@@ -48,11 +48,18 @@ function validatePlayerChoice(playerSelection) {
 
 }
 
+let resultDiv = document.querySelector('#results');
+let status = document.createElement('p');
+status.innerText = "hello world";
+console.log(status);
+resultDiv.appendChild(status);
+
 // playRound(playerSelection, computerSelection) 
 // using nested if else - find out who wins
 // returns a string declaring round winner
 
 function playRound(playerSelection, computerSelection) {
+
     if (playerSelection == "rock") {
         if (computerSelection == "rock") {
             result = "      A draw? boring      ";
@@ -61,7 +68,10 @@ function playRound(playerSelection, computerSelection) {
         } else { 
             result = "      YAAAY! :D       ";
         }
-        console.log(`Player ${playerSelection.toUpperCase()} : ${computerSelection.toUpperCase()} Computer`);
+
+        status.innerText = `Player ${playerSelection.toUpperCase()} : ${computerSelection.toUpperCase()} Computer`;
+
+        // console.log(`Player ${playerSelection.toUpperCase()} : ${computerSelection.toUpperCase()} Computer`);
         return result;
     } else if (playerSelection == "paper") {
         if (computerSelection == "rock") {
@@ -71,7 +81,10 @@ function playRound(playerSelection, computerSelection) {
         } else { 
             result = "      NOOOO :(       ";
         }
-        console.log(`Player ${playerSelection.toUpperCase()} : ${computerSelection.toUpperCase()} Computer`);
+
+        status.innerText = `Player ${playerSelection.toUpperCase()} : ${computerSelection.toUpperCase()} Computer`;
+
+        // console.log(`Player ${playerSelection.toUpperCase()} : ${computerSelection.toUpperCase()} Computer`);
         return result;
     } else {
         if (computerSelection == "rock") {
@@ -81,7 +94,10 @@ function playRound(playerSelection, computerSelection) {
         } else { 
             result = "      A draw? boring      ";
         }
-        console.log(`Player ${playerSelection.toUpperCase()} : ${computerSelection.toUpperCase()} Computer`);
+        
+        status.innerText = `Player ${playerSelection.toUpperCase()} : ${computerSelection.toUpperCase()} Computer`;
+
+        // console.log(`Player ${playerSelection.toUpperCase()} : ${computerSelection.toUpperCase()} Computer`);
         return result;
     }
 }
