@@ -2,6 +2,17 @@ let rockBTN = document.querySelector('#rock');
 let paperBTN = document.querySelector('#paper');
 let scissorsBTN = document.querySelector('#scissors');
 
+rockBTN.addEventListener('click', () => {
+    console.log("rambo");
+});
+
+paperBTN.addEventListener('click', () => {
+    console.log("petri");
+});
+
+scissorsBTN.addEventListener('click', () => {
+    console.log("shaemus");
+});
 
 // getComputerChoice() will return either r, p or s
 
