@@ -53,15 +53,15 @@ function playRound(playerSelection, computerSelection) {
 
         if (computerSelection == "rock") {
             comment.innerText = `Player ${playerSelection.toUpperCase()} vs ${computerSelection.toUpperCase()} Computer`;
-            ties += 1;
+            updateScore("draw");
             scorecard.innerText = `Player ${humanScore} : ${robotScore} Computer and ${ties} draws`;
         } else if (computerSelection == "paper") {
             comment.innerText = `Player ${playerSelection.toUpperCase()} vs ${computerSelection.toUpperCase()} Computer`;
-            robotScore += 1;
+            updateScore("loss");
             scorecard.innerText = `Player ${humanScore} : ${robotScore} Computer and ${ties} draws`;
         } else { 
             comment.innerText = `Player ${playerSelection.toUpperCase()} vs ${computerSelection.toUpperCase()} Computer`;
-            humanScore += 1;
+            updateScore("win");
             scorecard.innerText = `Player ${humanScore} : ${robotScore} Computer and ${ties} draws`;
         }
 
@@ -69,15 +69,15 @@ function playRound(playerSelection, computerSelection) {
 
         if (computerSelection == "rock") {
             comment.innerText = `Player ${playerSelection.toUpperCase()} vs ${computerSelection.toUpperCase()} Computer`;
-            humanScore += 1;
+            updateScore("win");
             scorecard.innerText = `Player ${humanScore} : ${robotScore} Computer and ${ties} draws`;
         } else if (computerSelection == "paper") {
             comment.innerText = `Player ${playerSelection.toUpperCase()} vs ${computerSelection.toUpperCase()} Computer`;
-            ties += 1;
+            updateScore("draw");
             scorecard.innerText = `Player ${humanScore} : ${robotScore} Computer and ${ties} draws`;
         } else {
             comment.innerText = `Player ${playerSelection.toUpperCase()} vs ${computerSelection.toUpperCase()} Computer`;
-            robotScore += 1;
+            updateScore("loss");
             scorecard.innerText = `Player ${humanScore} : ${robotScore} Computer and ${ties} draws`;
         }
 
@@ -85,20 +85,39 @@ function playRound(playerSelection, computerSelection) {
 
         if (computerSelection == "rock") {
             comment.innerText = `Player ${playerSelection.toUpperCase()} vs ${computerSelection.toUpperCase()} Computer`;
+            updateScore("loss");
             scorecard.innerText = `Player ${humanScore} : ${robotScore} Computer and ${ties} draws`;
-            robotScore += 1;
         } else if (computerSelection == "paper") {
             comment.innerText = `Player ${playerSelection.toUpperCase()} vs ${computerSelection.toUpperCase()} Computer`;
+            updateScore("win");
             scorecard.innerText = `Player ${humanScore} : ${robotScore} Computer and ${ties} draws`;
-            humanScore += 1;
         } else { 
             comment.innerText = `Player ${playerSelection.toUpperCase()} vs ${computerSelection.toUpperCase()} Computer`;
+            updateScore("draw");
             scorecard.innerText = `Player ${humanScore} : ${robotScore} Computer and ${ties} draws`;
-            ties =+ 1;
         }
     }
 
     checkWinner();
+}
+
+
+function updateScore(victor) {
+    switch (victor) {
+        case "win":
+            humanScore += 1;
+            break;
+        case "loss":
+            robotScore += 1;
+            break;
+        case "draw":
+            ties += 1;
+            break;
+    }
+}
+
+function updateScorecard() {
+    scorecard.innerText = `Player ${humanScore} : ${robotScore} Computer and ${ties} draws`;
 }
 
 // display result on page
