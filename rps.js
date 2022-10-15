@@ -24,14 +24,14 @@ scissorsBTN.addEventListener('click', () => {
 
 function getComputerChoice() {
     num = Math.floor(Math.random() * 3) + 1;
-    if (num == 1) {
-        result = "rock";
-    } else if (num == 2) {
-        result = "paper";
-    } else {
-        result = "scissors";
+    switch (num) {
+        case 1:
+            return "rock";
+        case 2: 
+            return "paper";
+        case 3:
+            return "scissors";
     }
-    return result;
 }
 
 
