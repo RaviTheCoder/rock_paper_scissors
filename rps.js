@@ -43,7 +43,7 @@ comment.innerText = "I wonder who'll win?";
 resultDiv.appendChild(comment);
 
 let scorecard = document.createElement('p');
-scorecard.innerText = `Player ${humanScore} : ${robotScore} Computer and ${ties} draws`
+updateScorecard();
 resultDiv.appendChild(scorecard);
 
 
@@ -54,15 +54,14 @@ function playRound(playerSelection, computerSelection) {
         if (computerSelection == "rock") {
             comment.innerText = `Player ${playerSelection.toUpperCase()} vs ${computerSelection.toUpperCase()} Computer`;
             updateScore("draw");
-            scorecard.innerText = `Player ${humanScore} : ${robotScore} Computer and ${ties} draws`;
+
         } else if (computerSelection == "paper") {
             comment.innerText = `Player ${playerSelection.toUpperCase()} vs ${computerSelection.toUpperCase()} Computer`;
             updateScore("loss");
-            scorecard.innerText = `Player ${humanScore} : ${robotScore} Computer and ${ties} draws`;
+
         } else { 
             comment.innerText = `Player ${playerSelection.toUpperCase()} vs ${computerSelection.toUpperCase()} Computer`;
             updateScore("win");
-            scorecard.innerText = `Player ${humanScore} : ${robotScore} Computer and ${ties} draws`;
         }
 
     } else if (playerSelection == "paper") {
@@ -70,15 +69,14 @@ function playRound(playerSelection, computerSelection) {
         if (computerSelection == "rock") {
             comment.innerText = `Player ${playerSelection.toUpperCase()} vs ${computerSelection.toUpperCase()} Computer`;
             updateScore("win");
-            scorecard.innerText = `Player ${humanScore} : ${robotScore} Computer and ${ties} draws`;
+
         } else if (computerSelection == "paper") {
             comment.innerText = `Player ${playerSelection.toUpperCase()} vs ${computerSelection.toUpperCase()} Computer`;
             updateScore("draw");
-            scorecard.innerText = `Player ${humanScore} : ${robotScore} Computer and ${ties} draws`;
+
         } else {
             comment.innerText = `Player ${playerSelection.toUpperCase()} vs ${computerSelection.toUpperCase()} Computer`;
             updateScore("loss");
-            scorecard.innerText = `Player ${humanScore} : ${robotScore} Computer and ${ties} draws`;
         }
 
     } else {
@@ -86,18 +84,15 @@ function playRound(playerSelection, computerSelection) {
         if (computerSelection == "rock") {
             comment.innerText = `Player ${playerSelection.toUpperCase()} vs ${computerSelection.toUpperCase()} Computer`;
             updateScore("loss");
-            scorecard.innerText = `Player ${humanScore} : ${robotScore} Computer and ${ties} draws`;
         } else if (computerSelection == "paper") {
             comment.innerText = `Player ${playerSelection.toUpperCase()} vs ${computerSelection.toUpperCase()} Computer`;
             updateScore("win");
-            scorecard.innerText = `Player ${humanScore} : ${robotScore} Computer and ${ties} draws`;
         } else { 
             comment.innerText = `Player ${playerSelection.toUpperCase()} vs ${computerSelection.toUpperCase()} Computer`;
             updateScore("draw");
-            scorecard.innerText = `Player ${humanScore} : ${robotScore} Computer and ${ties} draws`;
         }
     }
-
+    updateScorecard();
     checkWinner();
 }
 
@@ -128,7 +123,26 @@ resultDiv.appendChild(winner);
 function checkWinner() {
     if (humanScore == 5) {
         winner.innerText = "yay you go human";
+        endScreen();
     } else if (robotScore == 5) {
         winner.innerText = "nooo poor humanity";
+        endScreen();
     }
 }
+
+
+function endScreen() {
+    buttons.removeChild(rockBTN);
+    buttons.removeChild(paperBTN);
+    buttons.removeChild(scissorsBTN);
+    let restart = document.createElement('button');
+    restart.innerText = "restart?";
+    resultDiv.appendChild(restart);
+    restart.addEventListener('click', refreshPage);
+}
+
+const refreshPage = () => {
+    location.reload();
+}
+  
+
